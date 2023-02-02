@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="sun" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+  <!-- <path id="Rectangle_209" data-name="Rectangle 209" d="M22,54H10V42L0,32,10,22V10H22L32,0,42,10H54V22L64,32,54,42V54H42L32,64Z" fill="#f59d00"/> -->
+  <circle id="Oval_41" data-name="Oval 41" cx="23" cy="23" r="23" transform="translate(9 9)" fill="#f2c500"/>
+</svg>
