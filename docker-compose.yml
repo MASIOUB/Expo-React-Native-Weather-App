@@ -1,0 +1,30 @@
+version: '3'
+services:
+  db:
+    container_name: db
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - data:/data/db
+  backend:
+    container_name: backend
+    build: ./backend
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    ports:
+      - '19000:19000'
+    volumes:
+      - ./frontend:/app
+    # allow interactive mode
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+volumes:
+  data:

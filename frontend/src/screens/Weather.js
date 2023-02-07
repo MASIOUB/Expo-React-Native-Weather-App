@@ -49,24 +49,8 @@ function Weather() {
     const x = new Date(forecast.list[0].dt * 1000);
     const options = { weekday: 'short', day: 'numeric', month: 'long' };
     const formattedDate = x.toLocaleDateString('en-US', options);
-
-    // console.log(new Date(forecast.list[0].dt_txt).toLocaleDateString('en-us'))
     console.log(formattedDate);
-
-    // const currentWeather = forecast.current.weather[0];
-    // console.log(forecast.list[0].weather[0].icon);
-    // assets/svg/${forecast.list[0].weather[0].icon}.svg
     const array = forecast.list
-
-    // array.forEach(element => {
-    //     console.log(element)
-    // });
-
-    // console.log(forecast);
-
-    // const date = new Date().toLocaleDateString();
-
-    // console.log(date);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -96,17 +80,12 @@ function Weather() {
                 <Text style={styles.currentDescription}>
                     {forecast.list[0].weather[0].description}
                 </Text>
-                {/* <View>
-                    <Text style={styles.subtitle}>
-                        Hourly weather
-                    </Text>
-                </View> */}
                 <ScrollView style={styles.flex}>
                     <FlatList
                         showsHorizontalScrollIndicator={false}
                         horizontal
                         data={forecast.list.slice(0, 8)}
-                        keyExtractor={(item, index) => index.toString()}
+                        keyExtractor={item => item.id}
                         renderItem={(data) => {
                             const weather = data.item.weather[0]
                             const dt = new Date(data.item.dt * 1000).toLocaleTimeString('en-us');
@@ -146,8 +125,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#5397E2',
-        // alignItems: 'center',
-        // justifyContent: 'center',
     },
     title: {
         textAlign: 'center',
